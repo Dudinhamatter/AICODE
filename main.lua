@@ -1,5 +1,5 @@
-love.graphics.setDefaultFilter("nearest","nearest")
-love.graphics.setBackgroundColor(0,.3,.3)
+love.graphics.setDefaultFilter("nearest", "nearest")
+love.graphics.setBackgroundColor(0, .3, .3)
 
 Game = require("game")
 
@@ -9,10 +9,12 @@ Basics = require("libs/basics")
 local bump = require "libs.bump"
 
 local Player = require "player"
+local Enemy = require "enemy"
 local Cursor = require "cursor"
--- whatisthatasd
+
 local world
 local player
+local enemy
 local cursor
 
 function love.load()
@@ -20,16 +22,19 @@ function love.load()
 
     world = bump.newWorld(32)  -- Adjusted world grid size to match player size
     player = Player:new(world, 320, 240)
+    enemy = Enemy:new(world, 320-64, 240, player) -- Add an enemy
     cursor = Cursor:new(world, 320, 240)
 end
 
 function love.update(dt)
     player:update(dt)
+    enemy:update(dt) -- Update the enemy
     cursor:update(dt)
 end
 
 function love.draw()
     player:draw()
+    enemy:draw() -- Draw the enemy
     cursor:draw()
 end
 
@@ -43,7 +48,7 @@ end
 
 function love.keyreleased(key)
     -- Clear moveQueue on key released to prevent continuous movement when key is released
-    if key == 'up' or key == 'down' or key == 'left' or key == 'right' then
+    if key == 'up' or key == 'down' or key == 'left' or 'right' then
         player.moveQueue = {}
     end
 end
