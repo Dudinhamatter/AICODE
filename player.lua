@@ -16,7 +16,7 @@ function Player:new(world, x, y)
         moveDir = nil,
         targetX = x,
         targetY = y,
-        hp = 100,
+        hp = 30,
         world = world,
         isFlashing = false,
         flashDuration = 0.1,
