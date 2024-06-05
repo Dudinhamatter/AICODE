@@ -3,7 +3,7 @@ love.graphics.setBackgroundColor(0, .3, .3)
 
 Game = require("game")
 
--- Libraries
+-- Librarieseza
 Basics = require("libs/basics")
 
 local bump = require "libs.bump"
