@@ -20,7 +20,8 @@ function Player:new(world, x, y)
         world = world,
         isFlashing = false,
         flashDuration = 0.1,
-        flashTime = 0
+        flashTime = 0,
+        waterCan = true -- add waterCan property
     }
     world:add(obj, x, y, obj.width, obj.height)
     setmetatable(obj, Player)

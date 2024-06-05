@@ -11,7 +11,7 @@ function Enemy:new(world, x, y, player)
         y = y,
         width = 32,
         height = 32,
-        speed = 100, -- Enemy speed is slower than player
+        speed = 0, -- Enemy speed is slower than player
         isMoving = false,
         moveDir = nil,
         targetX = x,
